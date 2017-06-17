@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+
+  admin:
+    image: library/node:6-alpine
+    working_dir: /code
+    volumes:
+      - .:/code
+    environment:
+      NODE_ENV: development
+    command: "tail -F -n0 /etc/hosts"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external:
+      name: development_infra
