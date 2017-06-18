@@ -1,0 +1,26 @@
+/* NORMAL */
+
+.text.dark-red {
+  color: #c64e4e;
+}
+.text.purple {
+  color: #cc6699;
+}
+.text.light-blue {
+  color: #e3eefb;
+}
+.text.dark-blue {
+  color: #5da3c7;
+}
+.text.dark-green {
+  color: #77b382;
+}
+.text.orange {
+  color: #dda055;
+}
+
+/* CARD */
+
+.text.champion {
+  color: #77b382;
+}

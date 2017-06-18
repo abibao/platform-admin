@@ -9,6 +9,9 @@ services:
       - .:/code
     environment:
       NODE_ENV: development
+      REACT_APP_ADMIN_URL: https://admin.platform.abibao.com.local.net
+      REACT_APP_API_URL: https://api.platform.abibao.com.local.net
+      REACT_APP_GOOGLE_AUTH_URL: https://api.platform.abibao.com.local.net/auth/google/callback
     command: "tail -F -n0 /etc/hosts"
     networks:
       - proxy
