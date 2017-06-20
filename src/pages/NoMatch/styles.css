@@ -1,0 +1,32 @@
+#no-match .content {
+  width: 50%;
+  max-width: 480px;
+}
+#no-match h2 {
+  width: 100%;
+  text-align: left;
+}
+#no-match h4 {
+  width: 100%;
+  text-align: left;
+}
+#no-match .button {
+  margin-top: 50px;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) and (min-width: 640px) {
+  #no-match .content {
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #no-match {
+    padding: 5px;
+  }
+  #no-match .content {
+    width: 100%;
+    border-radius: 0;
+  }
+}

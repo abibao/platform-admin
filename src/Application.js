@@ -10,17 +10,12 @@ import {
 import 'normalize.css'
 import './styles/global.css'
 
-import Login from './pages/Login'
-import Campaigns from './pages/Campaigns'
-import CampaignEditor from './pages/CampaignEditor'
-import NoMatch from './pages/NoMatch'
+import {Login, NoMatch} from './pages'
 
 const Application = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={Login} />
-      <Route exact path="/campaigns" component={Campaigns} />
-      <Route exact path="/campaigns/:campaign" component={CampaignEditor} />
       <Route component={NoMatch} />
     </Switch>
   </Router>

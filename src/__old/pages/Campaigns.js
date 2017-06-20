@@ -8,6 +8,7 @@ import Debug from 'debug'
 import Store from './../Store'
 import Actions from './../Actions'
 
+import InfosComponent from './components/InfosComponent'
 import CampaignCardItemRenderer from './itemRenderers/CampaignCardItemRenderer'
 
 const debug = Debug('platform-abibao:pages')
@@ -37,14 +38,7 @@ class Campaigns extends Reflux.Component {
       return (<Redirect to={'/?error=' + this.state.generalError} />)
     }
     if (this.state.initialized === false) {
-      return (
-        <div className="container vertical-full justify-content-center align-items-center">
-          <div className="container vertical initialize">
-            <h2 className="item text dark-blue">{this.state.loader.title}</h2>
-            <h4 className="item">{this.state.loader.message}</h4>
-          </div>
-        </div>
-      )
+      return (<InfosComponent data={this.state.loader} />)
     }
     if (this.state.rememberMe === 'NONE') {
       return (<Redirect to="/" />)

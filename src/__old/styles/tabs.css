@@ -1,0 +1,36 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  width: 90px;
+  height: 80px;
+  list-style: none;
+}
+
+.tabs > li {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 1px 0 rgba(118, 153, 194, 0.32);
+  border: 3px solid #e3eefb;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .3s background-color;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.tabs > li a {
+  display: block;
+  width: 90px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tabs > li span {
+}
+
+.tabs > li._selected {
+  border-color: #5da3c7;
+}

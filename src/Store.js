@@ -19,6 +19,7 @@ class Store extends Reflux.Store {
         message: 'Ouverture des caisses d’approvisionnement.'
       },
       campaigns: {
+        open: false,
         dataProvider: false
       }
     }
@@ -32,6 +33,7 @@ class Store extends Reflux.Store {
   onAppInitialize () { this.handlers.onAppInitialize(this) }
   onAppCreateCampaign () { this.handlers.onAppCreateCampaign(this) }
   onAppUpdateCampaigns (campaign) { this.handlers.onAppUpdateCampaigns(campaign, this) }
+  onAppUpdateCampaign (campaign) { this.handlers.onAppUpdateCampaign(campaign, this) }
 }
 
 export default Store

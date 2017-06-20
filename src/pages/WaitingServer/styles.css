@@ -1,0 +1,28 @@
+#waiting-server .content {
+  width: 50%;
+  max-width: 480px;
+}
+#waiting-server h2 {
+  width: 100%;
+  text-align: left;
+}
+#waiting-server h4 {
+  width: 100%;
+  text-align: left;
+}
+
+@media screen and (max-width: 800px) and (min-width: 640px) {
+  #waiting-server .content {
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #waiting-server {
+    padding: 5px;
+  }
+  #waiting-server .content {
+    width: 100%;
+    border-radius: 0;
+  }
+}

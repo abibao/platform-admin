@@ -4,8 +4,9 @@ const Actions = Reflux.createActions([
   'checkCookie',
   'saveCookie',
   'authGoogle',
-  'appCreateCampaign',
   'appInitialize',
+  'appCreateCampaign',
+  'appUpdateCampaign',
   'appUpdateCampaigns'
 ])
 

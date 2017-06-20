@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "react-scripts start",
-    "test:standard": "node_modules/.bin/standard src/**/*.js test/**/*.js | node_modules/.bin/snazzy"
+    "test:standard": "node_modules/.bin/standard src/**/*.js test/**/*.js | node_modules/.bin/snazzy",
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "feathers-hooks": "2.0.1",
     "feathers-socketio": "2.0.0",
     "normalize.css": "7.0.0",
+    "prop-types": "15.5.10",
     "query-string": "4.3.4",
     "react": "15.6.1",
     "react-addons-test-utils": "15.6.0",
