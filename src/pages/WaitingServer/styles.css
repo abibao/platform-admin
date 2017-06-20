@@ -4,11 +4,42 @@
 }
 #waiting-server h2 {
   width: 100%;
-  text-align: left;
+  align-self: left;
 }
 #waiting-server h4 {
   width: 100%;
-  text-align: left;
+  align-self: left;
+}
+#waiting-server .logo {
+  align-self: left;
+}
+
+#waiting-server .loader {
+  margin-top: 20px;
+  height: 4px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #dddddd;
+}
+#waiting-server .loader:before{
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 4px;
+  background-color: #5da3c7;
+  animation: WaitingServerLoading 2s linear infinite;
+}
+
+@keyframes WaitingServerLoading {
+  from {left: -200px; width: 30%;}
+  50% {width: 30%;}
+  70% {width: 70%;}
+  80% { left: 50%;}
+  95% {left: 120%;}
+  to {left: 100%;}
 }
 
 @media screen and (max-width: 800px) and (min-width: 640px) {
@@ -19,7 +50,7 @@
 
 @media screen and (max-width: 640px) {
   #waiting-server {
-    padding: 5px;
+    padding: 10px;
   }
   #waiting-server .content {
     width: 100%;

@@ -10,6 +10,7 @@ import './styles.css'
 const NoMatch = ({ location }) => (
   <Group id="no-match" width="100%" height="100%" horizontalAlign="center" verticalAlign="middle">
     <Group className="content" height="auto" horizontalAlign="center">
+      <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
       <h2 className="dark-red">Erreur 404</h2>
       <h4>Vous vous êtes égaré dans la dimension noire.</h4>
       <Button href="/" label="Retour sur terre" className="button dark-red" />

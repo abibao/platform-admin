@@ -1,0 +1,7 @@
+#campaigns {
+  padding: 15px;
+}
+#campaigns .content {
+  width: 100%;
+  max-width: 900px;
+}
