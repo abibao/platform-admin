@@ -51,7 +51,13 @@ class Login extends Reflux.Component {
     debug('componentWillUnmount')
   }
   render () {
-    debug('render')
+    debug('render', this.getCurrentState())
+    if (this.state.generalError !== false) {
+      this.setState({
+        generalError: false
+      })
+      return (<Redirect to={'/?error=' + this.state.generalError} />)
+    }
     if (this.getCurrentState() === 'STATE_CONNECTED') {
       return (<Redirect to="/campaigns" />)
     }
@@ -65,7 +71,7 @@ class Login extends Reflux.Component {
           <Button onClick={Actions.authGoogle} label="Contrôle des papiers" className="button dark-blue" />
         </Group>
 
-        <Group includeIn="STATE_INITIALIZE" loader width="100%" height="100%" horizontalAlign="center" verticalAlign="middle">
+        <Group includeIn="STATE_INITIALIZE" className="content" width="100%" height="auto" horizontalAlign="center" verticalAlign="middle">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">Veuillez patienter</h2>
           <h4>Séquence de démarrage enclenchée.</h4>

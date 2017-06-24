@@ -24,7 +24,7 @@ const handler = (context) => {
     context.state.loader.title = 'Intialisation en cours...'
     context.state.loader.message = 'Repérage de la proie, identification de l’espèce.'
     context.setState({loader: context.state.loader})
-    window.feathers.authenticate().then((response) => {
+    window.feathers.authenticate({strategy: 'jwt', accessToken: context.state.rememberMe}).then((response) => {
       return window.feathers.passport.verifyJWT(response.accessToken).then((payload) => {
         return window.feathers.service('users').get(payload.userId)
       })
@@ -41,8 +41,13 @@ const handler = (context) => {
       Actions.appInitialize()
     })
     .catch((error) => {
-      debug('onCheckCookie, error: %o', error)
+      debug('onCheckCookie, error: %o', error.toString())
       switch (error.toString()) {
+        case 'NotAuthenticated: Could not find stored JWT and no authentication strategy was given':
+          context.setState({
+            generalError: 'NotAuthenticated'
+          })
+          break
         case 'Error: Socket connection timed out':
           context.setState({
             generalError: 'SocketDisconnected'

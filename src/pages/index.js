@@ -1,4 +1,4 @@
 export { default as Login } from './Login/index'
 export { default as Campaigns } from './Campaigns/index'
 export { default as NoMatch } from './NoMatch/index'
-export { default as WaitingServer} from './WaitingServer/index'
+export { default as WaitingServer } from './WaitingServer/index'

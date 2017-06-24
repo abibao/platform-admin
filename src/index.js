@@ -21,6 +21,7 @@ Client((app) => {
   })
   app.io.on('disconnect', () => {
     debug('socket disconnect')
+    render(<WaitingServer />, document.getElementById('root'))
   })
   app.service('api/campaigns').on('created', (campaign) => {
     Actions.appUpdateCampaigns(campaign)
