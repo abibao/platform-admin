@@ -62,22 +62,22 @@ class Login extends Reflux.Component {
       return (<Redirect to="/campaigns" />)
     }
     return (
-      <Group id="login" width="100%" height="100%" horizontalAlign="center" verticalAlign="middle">
+      <Group id="login" width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="middle">
 
-        <Group includeIn="STATE_ERROR" className="content" height="auto" horizontalAlign="center">
+        <Group includeIn="STATE_ERROR" className="content" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-red">{this.getParams().error}</h2>
           <h4>Quelque chose à mal tourné, ça va faire mal.</h4>
           <Button onClick={Actions.authGoogle} label="Contrôle des papiers" className="button dark-blue" />
         </Group>
 
-        <Group includeIn="STATE_INITIALIZE" className="content" width="100%" height="auto" horizontalAlign="center" verticalAlign="middle">
+        <Group includeIn="STATE_INITIALIZE" className="content" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">Veuillez patienter</h2>
           <h4>Séquence de démarrage enclenchée.</h4>
         </Group>
 
-        <Group includeIn="STATE_NOT_CONNECTED" className="content" height="auto" horizontalAlign="center">
+        <Group includeIn="STATE_NOT_CONNECTED" className="content" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">Vous êtes un étranger</h2>
           <h4>Nous n’avons trouvé aucune trace de votre passage.</h4>

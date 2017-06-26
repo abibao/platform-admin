@@ -20,7 +20,7 @@ class Store extends Reflux.Store {
       },
       campaigns: {
         open: false,
-        dataProvider: false
+        dataProvider: []
       }
     }
     debug('constructor login store')
