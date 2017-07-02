@@ -32,8 +32,9 @@ class Store extends Reflux.Store {
   onAuthGoogle () { this.handlers.onAuthGoogle(this) }
   onAppInitialize () { this.handlers.onAppInitialize(this) }
   onAppCreateCampaign () { this.handlers.onAppCreateCampaign(this) }
+  onAppLoadCampaign (id) { this.handlers.onAppLoadCampaign(id, this) }
   onAppUpdateCampaigns (campaign) { this.handlers.onAppUpdateCampaigns(campaign, this) }
-  onAppUpdateCampaign (campaign) { this.handlers.onAppUpdateCampaign(campaign, this) }
+  onAppUpdateCampaign (campaign, picture) { this.handlers.onAppUpdateCampaign(campaign, picture, this) }
 }
 
 export default Store

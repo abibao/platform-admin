@@ -1,3 +1,4 @@
+import {orderBy} from 'lodash'
 import Debug from 'debug'
 
 const debug = Debug('platform-abibao:actions')
@@ -9,6 +10,7 @@ const handler = (context) => {
   context.setState({loader: context.state.loader})
   window.feathers.service('api/campaigns').find({}).then((campaigns) => {
     context.state.campaigns.dataProvider = campaigns
+    context.state.campaigns.dataProvider = orderBy(context.state.campaigns.dataProvider, ['company', 'name'], ['asc', 'asc'])
     context.setState({
       initialized: true,
       campaigns: context.state.campaigns

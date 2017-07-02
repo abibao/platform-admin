@@ -59,6 +59,9 @@ const handler = (context) => {
           })
           break
         default:
+          context.setState({
+            generalError: 'GeneralError'
+          })
           console.error(error.toString())
       }
     })

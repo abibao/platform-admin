@@ -1,5 +1,8 @@
+/* eslint jsx-quotes: ["error", "prefer-double"] */
+
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import FontAwesome from 'react-fontawesome'
 
 class Button extends Component {
   render () {
@@ -7,6 +10,7 @@ class Button extends Component {
     const {
       id,
       label,
+      icon,
       className,
       href,
       onClick
@@ -14,8 +18,13 @@ class Button extends Component {
     // internal state
     // internal style
     // visual
+    if (icon) {
+      return (
+        <a id={id} className={className} href={href} onClick={onClick}><FontAwesome style={{margin: 'auto'}} name={icon} /></a>
+      )
+    }
     return (
-      <a id={id} className={className} href={href} onClick={onClick}>{label || 'Button'}</a>
+      <a id={id} className={className} href={href} onClick={onClick}>{label || ''}</a>
     )
   }
 }
@@ -23,6 +32,7 @@ class Button extends Component {
 Button.propTypes = {
   id: PropTypes.string,
   label: PropTypes.string,
+  icon: PropTypes.string,
   className: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func

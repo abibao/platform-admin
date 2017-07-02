@@ -16,6 +16,8 @@ class Group extends Component {
       creationComplete
     } = this.props
     // internal state
+    this.internal = {
+    }
     this.state = {
       style: {},
       hasChildren: !isNil(this.props.children),
@@ -25,109 +27,115 @@ class Group extends Component {
       hasHorizontalAlign: !isNil(horizontalAlign),
       hasVerticalAlign: !isNil(verticalAlign)
     }
-    // internal style
-    let style = {
-      width,
-      height,
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'baseline',
-      alignContent: 'stretch'
-    }
-    // orientation vertical
-    if (this.state.hasOrientation && orientation === 'vertical') {
-      style.flexDirection = 'column'
-    }
-    // horizontal - vertical
-    let alignments = (this.state.hasHorizontalAlign) ? horizontalAlign : 'none'
-    alignments += '-'
-    alignments += (this.state.hasVerticalAlign) ? verticalAlign : 'none'
-    if (!this.state.hasOrientation || orientation === 'vertical') {
-      switch (alignments) {
-        case 'left-top':
-        case 'left-none':
-          style.alignItems = 'flex-start'
-          break
-        case 'center-top':
-        case 'center-none':
-          style.alignItems = 'center'
-          break
-        case 'right-top':
-        case 'right-none':
-          style.alignItems = 'flex-end'
-          break
-        case 'right-middle':
-          style.alignItems = 'flex-end'
-          style.justifyContent = 'center'
-          break
-        case 'right-bottom':
-          style.alignItems = 'flex-end'
-          style.justifyContent = 'flex-end'
-          break
-        case 'center-bottom':
-          style.alignItems = 'center'
-          style.justifyContent = 'flex-end'
-          break
-        case 'left-bottom':
-          style.alignItems = 'flex-start'
-          style.justifyContent = 'flex-end'
-          break
-        case 'left-middle':
-          style.alignItems = 'flex-start'
-          style.justifyContent = 'center'
-          break
-        case 'center-middle':
-          style.alignItems = 'center'
-          style.justifyContent = 'center'
-          break
-        default:
+    this.style = () => {
+      // internal style
+      let style = {
+        ...this.props.style,
+        width,
+        height,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'baseline',
+        alignContent: 'stretch'
       }
-    }
-    if (!this.state.hasOrientation || orientation === 'horizontal') {
-      switch (alignments) {
-        case 'left-top':
-        case 'left-none':
-          style.justifyContent = 'flex-start'
-          break
-        case 'center-top':
-        case 'center-none':
-          style.justifyContent = 'center'
-          break
-        case 'right-top':
-        case 'right-none':
-          style.justifyContent = 'flex-end'
-          break
-        case 'right-middle':
-          style.alignItems = 'center'
-          style.justifyContent = 'flex-end'
-          break
-        case 'right-bottom':
-          style.alignItems = 'flex-end'
-          style.justifyContent = 'flex-end'
-          break
-        case 'center-bottom':
-          style.alignItems = 'flex-end'
-          style.justifyContent = 'center'
-          break
-        case 'left-bottom':
-          style.alignItems = 'flex-end'
-          style.justifyContent = 'flex-start'
-          break
-        case 'left-middle':
-          style.alignItems = 'center'
-          style.justifyContent = 'flex-start'
-          break
-        case 'center-middle':
-          style.alignItems = 'center'
-          style.justifyContent = 'center'
-          break
-        default:
+      // orientation vertical
+      if (this.state.hasOrientation && orientation === 'vertical') {
+        style.flexDirection = 'column'
       }
+      // horizontal - vertical
+      let alignments = (this.state.hasHorizontalAlign) ? horizontalAlign : 'none'
+      alignments += '-'
+      alignments += (this.state.hasVerticalAlign) ? verticalAlign : 'none'
+      if (!this.state.hasOrientation || orientation === 'vertical') {
+        switch (alignments) {
+          case 'left-top':
+          case 'left-none':
+            style.alignItems = 'flex-start'
+            break
+          case 'center-top':
+          case 'center-none':
+            style.alignItems = 'center'
+            break
+          case 'right-top':
+          case 'right-none':
+            style.alignItems = 'flex-end'
+            break
+          case 'right-middle':
+            style.alignItems = 'flex-end'
+            style.justifyContent = 'center'
+            break
+          case 'right-bottom':
+            style.alignItems = 'flex-end'
+            style.justifyContent = 'flex-end'
+            break
+          case 'center-bottom':
+            style.alignItems = 'center'
+            style.justifyContent = 'flex-end'
+            break
+          case 'left-bottom':
+            style.alignItems = 'flex-start'
+            style.justifyContent = 'flex-end'
+            break
+          case 'left-middle':
+            style.alignItems = 'flex-start'
+            style.justifyContent = 'center'
+            break
+          case 'center-middle':
+            style.alignItems = 'center'
+            style.justifyContent = 'center'
+            break
+          default:
+        }
+      }
+      if (!this.state.hasOrientation || orientation === 'horizontal') {
+        switch (alignments) {
+          case 'left-top':
+          case 'left-none':
+            style.justifyContent = 'flex-start'
+            break
+          case 'center-top':
+          case 'center-none':
+            style.justifyContent = 'center'
+            break
+          case 'right-top':
+          case 'right-none':
+            style.justifyContent = 'flex-end'
+            break
+          case 'right-middle':
+            style.alignItems = 'center'
+            style.justifyContent = 'flex-end'
+            break
+          case 'right-bottom':
+            style.alignItems = 'flex-end'
+            style.justifyContent = 'flex-end'
+            break
+          case 'center-bottom':
+            style.alignItems = 'flex-end'
+            style.justifyContent = 'center'
+            break
+          case 'left-bottom':
+            style.alignItems = 'flex-end'
+            style.justifyContent = 'flex-start'
+            break
+          case 'left-middle':
+            style.alignItems = 'center'
+            style.justifyContent = 'flex-start'
+            break
+          case 'center-middle':
+            style.alignItems = 'center'
+            style.justifyContent = 'center'
+            break
+          default:
+        }
+      }
+      return style
     }
-    this.state.style = style
   }
   componentDidMount () {
-    // creationComplete
+    // creationComplete)
+    this.setState({
+      style: this.style()
+    })
     if (this.state.hasCreationComplete) {
       this.props.creationComplete()
     }

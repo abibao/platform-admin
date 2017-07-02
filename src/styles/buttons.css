@@ -1,7 +1,6 @@
 .button {
-  margin: 0;
-  padding: 0;
-  padding: 12px;
+  margin: 5px;
+  padding: 10px;
   text-decoration: none;
   display: inline-block;
   border-radius: 5px;
@@ -20,22 +19,80 @@
   color: #ffffff;
   background-color: #5da3c7;
   font-size: 20px;
-  line-height: auto;
+  line-height: 20px;
 }
 .button:hover {
   opacity: 0.75;
+  color: #ffffff;
 }
-
-/* sizes */
+.button.center {
+  margin: auto;
+}
+.button.full {
+  width: 100%;
+}
+.button.circle {
+  border-radius: 50%;
+}
+.button.icon.circle * {
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  line-height: 40px;
+}
+.button.icon.square * {
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  line-height: 30px;
+}
+.button.flatten {
+  box-shadow: none;
+}
+.button.right {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+}
 .button.large {
   font-size: 24px;
+  padding: 15px;
 }
 .button.huge {
   font-size: 28px;
+  padding: 20px;
 }
 
 /* colors */
+.button.inverted.dark-blue {
+  background: none;
+  border: solid #5da3c7 2px;
+  color: #5da3c7;
+}
+.button.inverted.light-blue {
+  background: none;
+  border: solid #e3eefb 2px;
+  color: #e3eefb;
+}
+.button.inverted.orange {
+  background: none;
+  border: solid #dda055 2px;
+  color: #dda055;
+}
 .button.dark-red {
   background: #c64e4e;
+  color: #ffffff;
+}
+.button.dark-green {
+  background: #77b382;
+  color: #ffffff;
+}
+.button.orange {
+  background: #dda055;
   color: #ffffff;
 }

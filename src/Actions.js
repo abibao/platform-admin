@@ -6,6 +6,7 @@ const Actions = Reflux.createActions([
   'authGoogle',
   'appInitialize',
   'appCreateCampaign',
+  'appLoadCampaign',
   'appUpdateCampaign',
   'appUpdateCampaigns'
 ])
