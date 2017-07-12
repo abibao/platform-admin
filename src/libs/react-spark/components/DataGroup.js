@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import uuid from 'uuid'
 
 import Group from './Group'
 
@@ -21,7 +22,7 @@ class DataGroup extends Component {
     return (
       <Group {...this.props}>
         {dataProvider.map(item => {
-          return (<ItemRenderer key={item.id} data={item} />)
+          return (<ItemRenderer key={uuid.v4()} data={item} />)
         })}
       </Group>
     )

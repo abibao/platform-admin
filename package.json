@@ -20,7 +20,7 @@
   "devDependencies": {
     "feathers": "2.1.4",
     "feathers-authentication-client": "0.3.2",
-    "feathers-hooks": "2.0.1",
+    "feathers-hooks": "2.0.2",
     "feathers-socketio": "2.0.0",
     "normalize.css": "7.0.0",
     "prop-types": "15.5.10",

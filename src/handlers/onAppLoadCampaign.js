@@ -3,7 +3,7 @@ import Debug from 'debug'
 const debug = Debug('platform-abibao:actions')
 
 const handler = (id, context) => {
-  debug('onAppLoadCampaign: %o', id)
+  debug('onAppLoadCampaign: %s', id)
   context.state.loader.title = 'Travail en cours...'
   context.state.loader.message = 'Il est temps de valider un bagage.'
   context.setState({
@@ -11,6 +11,7 @@ const handler = (id, context) => {
     loader: context.state.loader
   })
   window.feathers.service('api/campaigns').get(id).then((campaign) => {
+    debug('onAppLoadCampaign: %o', campaign)
     context.setState({
       initialized: true,
       campaign

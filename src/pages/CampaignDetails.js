@@ -11,8 +11,8 @@ import Actions from './../Actions'
 import Store from './../Store'
 
 // react-spark
-import { Group, Button } from './../libs/react-spark'
-// import './styles.css'
+import { Group, DataGroup, Button } from './../libs/react-spark'
+import CampaignPageListRenderer from './renderers/CampaignPageListRenderer'
 
 const debug = Debug('platform-abibao:pages:campaign_details')
 
@@ -76,6 +76,7 @@ class CampaignDetails extends Reflux.Component {
   }
   componentWillUnmount () {
     debug('componentWillUnmount')
+    Reflux.Component.prototype.componentWillUnmount.call(this)
   }
   render () {
     debug('render', this.getCurrentState())
@@ -120,6 +121,9 @@ class CampaignDetails extends Reflux.Component {
               <Group width="100%" orientation="vertical" verticalAlign="top">
                 <h2 className="text dark-blue">Actions</h2>
                 <p>&nbsp;</p>
+                {this.state.campaign.data &&
+                  <DataGroup width="100%" dataProvider={this.state.campaign.data.pages} itemRenderer={CampaignPageListRenderer} />
+                }
               </Group>
             }
             {this.state.tab === 'variables' &&

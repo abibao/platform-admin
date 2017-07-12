@@ -52,7 +52,8 @@ class Login extends Reflux.Component {
     }
   }
   componentWillUnmount () {
-    debug('componentWillUnmount %o')
+    debug('componentWillUnmount')
+    Reflux.Component.prototype.componentWillUnmount.call(this)
   }
   render () {
     debug('render', this.getCurrentState())
