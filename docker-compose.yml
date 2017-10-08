@@ -1,23 +1,29 @@
-version: "2"
+version: "3.2"
 
 services:
 
-  admin:
-    image: library/node:6-alpine
+  web:
+    image: library/node:8-alpine
     working_dir: /code
     volumes:
       - .:/code
-    environment:
-      NODE_ENV: development
-      REACT_APP_ADMIN_URL: https://admin.platform.abibao.com.local.net
-      REACT_APP_API_URL: https://api.platform.abibao.com.local.net
-      REACT_APP_GOOGLE_AUTH_URL: https://api.platform.abibao.com.local.net/auth/google/callback
-    command: "tail -F -n0 /etc/hosts"
     networks:
-      proxy:
-        ipv4_address: 172.45.0.30
+      - proxy
+    ports:
+      - 9090:9090
+    environment:
+      VIRTUAL_HOST: abibao.platform.127.0.0.1.xip.io
+      VIRTUAL_PORT: 9090
+      LETSENCRYPT_HOST: abibao.platform.127.0.0.1.xip.io
+      LETSENCRYPT_EMAIL: team@abibao.com
+      REACT_APP_ADMIN_URL: http://abibao.platform.127.0.0.1.xip.io
+      REACT_APP_API_URL: http://abibao.api.127.0.0.1.xip.io
+      REACT_APP_GOOGLE_AUTH_URL: http://abibao.api.127.0.0.1.xip.io/auth/google/callback
+    volumes:
+      - .:/code
+    command: "yarn run start"
 
 networks:
   proxy:
     external:
-      name: development_infra
+      name: communs_default

@@ -69,7 +69,7 @@ class Login extends Reflux.Component {
     return (
       <Group className="application" width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="middle">
 
-        <Group includeIn="STATE_ERROR" width="100%" className="content small" orientation="vertical">
+        <Group includeIn="STATE_ERROR" getCurrentState={this.getCurrentState} width="100%" className="content small" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-red">{this.getParams().error}</h2>
           <h4>Quelque chose à mal tourné, ça va faire mal.</h4>
@@ -77,13 +77,13 @@ class Login extends Reflux.Component {
           <Button onClick={Actions.authGoogle} label="Contrôle des papiers" className="button large full dark-blue" />
         </Group>
 
-        <Group includeIn="STATE_INITIALIZE" width="100%" className="content small" orientation="vertical">
+        <Group includeIn="STATE_INITIALIZE" getCurrentState={this.getCurrentState} width="100%" className="content small" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">Veuillez patienter</h2>
           <h4>Séquence de démarrage enclenchée.</h4>
         </Group>
 
-        <Group includeIn="STATE_NOT_CONNECTED" width="100%" className="content small" orientation="vertical">
+        <Group includeIn="STATE_NOT_CONNECTED" getCurrentState={this.getCurrentState} width="100%" className="content small" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">Vous êtes un étranger</h2>
           <h4>Nous n’avons trouvé aucune trace de votre passage.</h4>

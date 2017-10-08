@@ -68,13 +68,13 @@ class Campaigns extends Reflux.Component {
     return (
       <Group className="application" width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="middle">
 
-        <Group includeIn="STATE_INITIALIZE" className="content small" orientation="vertical">
+        <Group includeIn="STATE_INITIALIZE" getCurrentState={this.getCurrentState} className="content small" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">{this.state.loader.title}</h2>
           <h4>{this.state.loader.message}</h4>
         </Group>
 
-        <Group includeIn="STATE_CONNECTED" width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="top">
+        <Group includeIn="STATE_CONNECTED" getCurrentState={this.getCurrentState} width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="top">
           <Group className="content fixed no-border" width="100%" orientation="vertical">
             <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
             <h2 className="title dark-blue">Bienvenue sur l’espace campagnes</h2>

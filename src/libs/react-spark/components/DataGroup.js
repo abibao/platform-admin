@@ -16,8 +16,7 @@ class DataGroup extends Component {
     const { dataProvider } = this.props
     const { ItemRenderer } = this.state
     // not in the currentState
-    const parent = this._reactInternalInstance._currentElement._owner._instance
-    this.getCurrentState = parent.getCurrentState
+    this.getCurrentState = this.props.getCurrentState
     // visual
     return (
       <Group {...this.props}>

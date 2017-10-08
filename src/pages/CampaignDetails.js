@@ -97,13 +97,13 @@ class CampaignDetails extends Reflux.Component {
     return (
       <Group className="application" width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="middle">
 
-        <Group includeIn="STATE_INITIALIZE" className="content small" orientation="vertical">
+        <Group includeIn="STATE_INITIALIZE" getCurrentState={this.getCurrentState} className="content small" orientation="vertical">
           <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
           <h2 className="dark-blue">{this.state.loader.title}</h2>
           <h4>{this.state.loader.message}</h4>
         </Group>
 
-        <Group includeIn="STATE_CONNECTED" width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="top">
+        <Group includeIn="STATE_CONNECTED" getCurrentState={this.getCurrentState} width="100%" height="100%" orientation="vertical" horizontalAlign="center" verticalAlign="top">
           <Group className="content fixed no-border" width="100%" orientation="vertical">
             <img alt="logo abibao" className="logo" src={process.env.REACT_APP_ADMIN_URL + '/images/abibao-logo-gris-jaune.png'} />
             <h2 className="dark-blue">Edition d’une campagne</h2>
@@ -145,8 +145,8 @@ class CampaignDetails extends Reflux.Component {
                   <input type="text" className="border" placeholder="Une campagne n'est rien sans attache." defaultValue={this.state.campaign.company} onChange={(e) => this.handleChangeInformation({key: 'company', val: e.target.value})} />
                 </div>
                 <div className="form-field">
-                  <label>Descrition</label>
-                  <textarea rows="4" className="border" placeholder="Une bonne descrition est parfois nécessaire." defaultValue={this.state.campaign.description} onChange={(e) => this.handleChangeInformation({key: 'description', val: e.target.value})} />
+                  <label>Description</label>
+                  <textarea rows="4" className="border" placeholder="Une bonne description est parfois nécessaire." defaultValue={this.state.campaign.description} onChange={(e) => this.handleChangeInformation({key: 'description', val: e.target.value})} />
                 </div>
                 <div className="form-field">
                   <a onClick={this.handleOpenDropzone} href="#!"><img alt={this.state.campaign.name} height="140" src={process.env.REACT_APP_API_URL + '/' + this.state.campaign.picture} /></a>

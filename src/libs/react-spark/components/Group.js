@@ -145,8 +145,7 @@ class Group extends Component {
     const { id, className, children, includeIn } = this.props
     const { style, hasChildren, hasIncludeIn } = this.state
     // not in the currentState
-    const parent = this._reactInternalInstance._currentElement._owner._instance
-    if (hasIncludeIn && parent.getCurrentState() !== includeIn) {
+    if (hasIncludeIn && this.props.getCurrentState() !== includeIn) {
       return (null)
     }
     // visual
@@ -164,6 +163,7 @@ Group.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   className: PropTypes.string,
+  getCurrentState: PropTypes.func,
   orientation: PropTypes.oneOf(['horizontal', 'vertical']),
   horizontalAlign: PropTypes.oneOf(['left', 'right', 'center']),
   verticalAlign: PropTypes.oneOf(['top', 'bottom', 'middle']),
